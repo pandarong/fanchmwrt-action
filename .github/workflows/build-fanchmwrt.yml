@@ -51,6 +51,9 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
+    - name: 加载自定义配置
+      run: |
+        [ -e $CONFIG_FILE ] && cp $CONFIG_FILE $OPENWRT_PATH/.config
 
     - name: 下载编译依赖
       run: |
